@@ -36,7 +36,12 @@ app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // express.static() => To serve static files such as images, CSS files, and JavaScript files
 // Here we are setting the directory where we are gonna keep our assets like images,etc. In real life projects we should store it in cloud like S3, here we are gonna store it locally.

@@ -7,7 +7,7 @@ export const createPost = async (req, res) => {
     const { userId, description, picturePath } = req.body;
     const user = await User.findById(userId);
 
-    const newPost = await Post.create({
+    const newPost = new Post({
       userId,
       firstName: user.firstName,
       lastName: user.lastName,
@@ -19,6 +19,8 @@ export const createPost = async (req, res) => {
       comments: [],
     });
 
+    await newPost.save();
+    
     // Fetching all the posts after creating new post and displaying all posts.
     const allPosts = await Post.find();
     res.status(201).json(allPosts);
@@ -34,6 +36,7 @@ export const getFeedPosts = async (req, res) => {
     res.status(200).json(allPosts);
   } catch (err) {
     res.status(404).json({ message: err.message });
+    console.log("Post error", err.message);
   }
 };
 

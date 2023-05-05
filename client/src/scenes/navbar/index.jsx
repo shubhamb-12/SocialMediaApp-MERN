@@ -53,7 +53,7 @@ const Navbar = () => {
           fontWeight={"bold"}
           fontSize={"clamp(1rem,2rem,2.25rem"}
           color={"primary"}
-          onclick={() => navigate("/home")}
+          onClick={() => navigate("/home")}
           sx={{
             "&:hover": {
               color: primaryLight,
@@ -111,12 +111,12 @@ const Navbar = () => {
               <MenuItem value={fullName}>
                 <Typography>{fullName}</Typography>
               </MenuItem>
-              <MenuItem onclick={() => dispatch(setLogout())}>Log Out</MenuItem>
+              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
             </Select>
           </FormControl>
         </FlexBetween>
       ) : (
-        <IconButton onclick={() => setIsMobileMenuToggled(isMobileMenuToggled)}>
+        <IconButton onClick={() => setIsMobileMenuToggled(isMobileMenuToggled)}>
           <Menu />
         </IconButton>
       )}
@@ -136,7 +136,7 @@ const Navbar = () => {
           {/** Close Icon */}
           <Box display={"flex"} justifyContent={"flex-end"} p={"1rem"}>
             <IconButton
-              onclick={() => setIsMobileMenuToggled(isMobileMenuToggled)}
+              onClick={() => setIsMobileMenuToggled(isMobileMenuToggled)}
             >
               <Close />
             </IconButton>
@@ -183,7 +183,7 @@ const Navbar = () => {
                 <MenuItem value={fullName}>
                   <Typography>{fullName}</Typography>
                 </MenuItem>
-                <MenuItem onclick={() => dispatch(setLogout())}>
+                <MenuItem onClick={() => dispatch(setLogout())}>
                   Log Out
                 </MenuItem>
               </Select>
